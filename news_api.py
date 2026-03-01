@@ -20,10 +20,12 @@ parameters = {
 # headers = {
 #         "User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
 #     }
-try:
-    news_response = requests.get(url=URL,params=parameters)
-    news_response.raise_for_status()
-    news_data = news_response.json()
-    req_news_data = news_data['articles'][0:2]
-except requests.exceptions.RequestException as e:
-    print(f"Network error occurred {e}")
+def fetch_news_as_msg():
+    try:
+        news_response = requests.get(url=URL,params=parameters)
+        news_response.raise_for_status()
+        news_data = news_response.json()
+        req_news_data = news_data['articles'][0:2]
+        return req_news_data
+    except requests.exceptions.RequestException as e:
+        print(f"Network error occurred {e}")
