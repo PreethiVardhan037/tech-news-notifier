@@ -4,3 +4,4 @@ config.py
 .env
 .idea/
 mock_news_data.py
+.DS_Store
